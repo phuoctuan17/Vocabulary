@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Ứng dụng học tiếng Anh tương tác — Trắc nghiệm từ vựng, Ngữ pháp, và Game gõ từ rơi. Miễn phí, không cần cài đặt." />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>VocabMaster — Học Tiếng Anh Thông Minh</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-md navbar-custom">
+    <div class="container">
+      <a class="navbar-brand-custom" href="#" data-nav="home">
+        <span class="brand-icon">📘</span> VocabMaster
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-1">
+          <li class="nav-item">
+            <a class="nav-link-custom active" href="#" data-nav="home">
+              <span class="nav-icon">🏠</span>Trang chủ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link-custom" href="#" data-nav="quiz">
+              <span class="nav-icon">📝</span>Trắc nghiệm
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link-custom" href="#" data-nav="grammar">
+              <span class="nav-icon">📚</span>Ngữ pháp
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link-custom" href="#" data-nav="game">
+              <span class="nav-icon">🎮</span>Mini Game
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ TOAST CONTAINER ============ -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="container py-4">
+
+    <!-- ======== HOME ======== -->
+    <section id="section-home" class="app-section active">
+      <div class="hero-section">
+        <div class="hero-illustration">🚀</div>
+        <h1 class="hero-title">Học Tiếng Anh<br />Mỗi Ngày, Mỗi Bước Tiến</h1>
+        <p class="hero-desc">
+          Luyện hơn <strong>540+ từ vựng TOEIC & Phát âm</strong>, ngữ pháp và kỹ năng gõ tiếng Anh qua các bài tập tương tác và mini-game hấp dẫn.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <!-- Card 1: Quiz -->
+        <div class="feature-card" data-feature="quiz">
+          <span class="card-icon">📝</span>
+          <h3>Trắc nghiệm từ vựng</h3>
+          <p>Bộ câu hỏi ngẫu nhiên từ kho 540+ từ vựng — dịch Anh↔Việt phản hồi tức thì.</p>
+        </div>
+        <!-- Card 2: Grammar -->
+        <div class="feature-card" data-feature="grammar">
+          <span class="card-icon">📚</span>
+          <h3>Ngữ pháp & Cấu trúc câu</h3>
+          <p>Ôn 5 điểm ngữ pháp quan trọng: công thức, giải thích, ví dụ song ngữ.</p>
+        </div>
+        <!-- Card 3: Game -->
+        <div class="feature-card" data-feature="game">
+          <span class="card-icon">🎮</span>
+          <h3>Falling Words Game</h3>
+          <p>Hơn 540 từ vựng rơi chậm rãi — gõ đúng hiện nghĩa tiếng Việt ngay trên màn hình!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== QUIZ SECTION ======== -->
+    <section id="section-quiz" class="app-section">
+      <div class="section-nav-wrapper">
+        <button class="btn-back" data-nav="home" title="Quay lại trang chủ">
+          <span class="back-icon">←</span> Quay lại
+        </button>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">📝 Trắc Nghiệm Từ Vựng</h2>
+        <p class="section-subtitle">Luyện toàn bộ 540+ từ vựng — Đảo ngẫu nhiên 100%, không lặp lại</p>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-card">
+          <!-- Quiz content rendered by JS -->
+          <div id="quiz-content">
+            <div class="text-center" style="padding: 2rem 0;">
+              <div style="font-size: 3.5rem; margin-bottom: 1rem;">🧠</div>
+              <h3 style="font-weight: 800; margin-bottom: 0.75rem;">Kiểm Tra Toàn Bộ Từ Vựng</h3>
+              <p style="color: var(--gray-600); margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6;">
+                Mỗi lần bắt đầu, hệ thống sẽ <strong>đảo lộn xộn 100%</strong> toàn bộ từ vựng trong kho.<br/>
+                Các từ đã xuất hiện sẽ <strong>không bao giờ lặp lại</strong> cho đến khi bạn hoàn thành toàn bộ!
+              </p>
+              <button class="btn-primary-custom" id="btn-start-quiz">
+                🚀 Bắt đầu làm bài
+              </button>
+            </div>
+          </div>
+          <!-- Quiz result -->
+          <div id="quiz-result" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== GRAMMAR SECTION ======== -->
+    <section id="section-grammar" class="app-section">
+      <div class="section-nav-wrapper">
+        <button class="btn-back" data-nav="home" title="Quay lại trang chủ">
+          <span class="back-icon">←</span> Quay lại
+        </button>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">📚 Ngữ Pháp & Cấu Trúc Câu</h2>
+        <p class="section-subtitle">Nhấn vào mỗi thẻ để xem công thức, giải thích và ví dụ</p>
+      </div>
+
+      <div class="grammar-container" id="grammar-list">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ======== GAME SECTION ======== -->
+    <section id="section-game" class="app-section">
+      <div class="section-nav-wrapper">
+        <button class="btn-back" data-nav="home" title="Quay lại trang chủ">
+          <span class="back-icon">←</span> Quay lại
+        </button>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">🎮 Falling Words Game</h2>
+        <p class="section-subtitle">Chế độ luyện gõ thư giãn không giới hạn mạng — Thoát ra bất cứ khi nào bạn muốn!</p>
+      </div>
+
+      <div class="game-container">
+        <!-- HUD -->
+        <div class="game-hud">
+          <div class="game-score">
+            <span class="score-icon">⭐</span>
+            <span id="game-score-value">0</span>
+          </div>
+          <div class="game-progress-tag" style="background: rgba(34, 197, 94, 0.12); color: #15803d; border-color: #86efac;">
+            ✅ <span id="game-correct-count">0</span> từ đúng
+          </div>
+          <div class="game-progress-tag">
+            📚 <span id="game-progress-count">0/544 từ</span>
+          </div>
+          <div id="game-combo" class="game-combo"></div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area" id="game-area">
+          <!-- Falling words rendered by JS -->
+
+          <!-- Start Overlay -->
+          <div class="game-overlay" id="game-start-overlay">
+            <h2>🎮 Falling Words</h2>
+            <p>
+              Chế độ luyện gõ thư giãn <strong>không giới hạn mạng</strong>! Toàn bộ 544 từ vựng sẽ rơi xuống theo thứ tự <strong>đảo lộn xộn ngẫu nhiên</strong> và <strong>không lặp lại</strong> từ đã xuất hiện!
+              <br/><br/>
+              ✅ Gõ đúng = <strong>+điểm</strong> + xem nghĩa ngay trên từ<br/>
+              ⌨️ Gõ sai? Nhấn <strong>Enter</strong> để tự xóa tức thì<br/>
+              🍃 Rơi chạm đáy = tự trôi qua, không sợ mất mạng, học thoái mái đến khi muốn dừng thì nhấp "Quay lại"!
+            </p>
+            <button class="btn-primary-custom" id="btn-start-game">
+              ▶️ Bắt Đầu Chơi
+            </button>
+          </div>
+
+          <!-- Game Over Overlay -->
+          <div class="game-overlay hidden" id="game-over-overlay">
+            <h2>💥 Game Over!</h2>
+            <div class="final-score" id="final-score">0</div>
+            <p>
+              Từ đúng: <strong id="final-words">0</strong><br/>
+              Combo cao nhất: <strong id="final-combo">0</strong>
+            </p>
+            <div class="d-flex gap-2 justify-content-center">
+              <button class="btn-primary-custom" id="btn-restart-game">
+                🔄 Chơi Lại
+              </button>
+              <button class="btn-secondary-custom" data-nav="home">
+                🏠 Về Trang Chủ
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="game-input-wrapper">
+          <input
+            type="text"
+            id="game-input"
+            class="game-input"
+            placeholder="Gõ từ... (nhấn Enter để xóa nhanh nếu gõ nhầm)"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+          <div class="game-input-hint">
+            💡 Mẹo: Gõ đúng từ sẽ tự biến mất • Gõ nhầm chỉ cần nhấn <strong>Enter</strong> để xóa nhanh!
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="app-footer">
+    <p>Made with ❤️ — <strong>VocabMaster</strong> © 2026. Học tiếng Anh mỗi ngày!</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
